@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infinita Arquitectura</title>
+    <!-- Favicon -->
+<link href="../assets/images/logos/logo_infinita_1.svg" rel="shortcut icon" type="image/jpeg">
+  <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+    <style>
+    /* Tipografía Space Grotesk para todos los elementos h */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "Space Grotesk", sans-serif !important;
+        }
+    /* Tipografía Inter para el resto del texto */
+    body, p, span, div, a, li, td, th, label, input, textarea, select, button {
+      font-family: "Inter", sans-serif !important;
+        }
+        
+    /* Altura específica para banner-section solo en blog.html */
+    .banner-section {
+      height: 350px !important;
+      min-height: 350px !important;
+        }
+        
+    /* Capa de opacidad oscura sobre el fondo del banner */
+    .banner-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+            width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+        }
+        
+    /* Asegurar que el contenido esté por delante de la opacidad */
+    .banner-section .container {
+            position: relative;
+      z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Header -->
+<header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+  <div class="container">
+    <div class="header-wrapper d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <a href="../index.html" class="logo-white">
+          <img src="../assets/images/logos/logo_footer.svg" alt="logo" class="img-fluid">
+        </a>
+        <a href="../index.html" class="logo-dark">
+          <img src="../assets/images/logos/logo_infinita.svg" alt="logo" class="img-fluid">
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+
+        <div class="btn-group">
+          <button
+            class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+            type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end p-4">
+            <div class="d-flex flex-column gap-6">
+              <div class="hstack justify-content-between border-bottom pb-6">
+                <p class="mb-0 fs-5 text-dark">Menu</p>
+                <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+              </div>
+              <div class="d-flex flex-column gap-3">
+                <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                  <li class="header-item">
+                    <a href="../index.html" aria-current="true"
+                      class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
+                        src="../assets/images/logos/logo_infinita_3.svg" alt="" width="20" height="20"
+                        class="img-fluid animate-spin">Home</a>
+                  </li>
+
+                  <li class="header-item">
+                    <a href="projects.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
+                        src="../assets/images/logos/logo_infinita_3.svg" alt="" width="20" height="20"
+                        class="img-fluid animate-spin">Proyectos</a>
+                  </li>
+                  <li class="header-item">
+                    <a href="blog.html" class="header-link active hstack gap-2 fs-7 fw-bold text-dark"><img
+                        src="../assets/images/logos/logo_infinita_2.svg" alt="" width="20" height="20"
+                        class="img-fluid">Blog</a>
+                  </li>
+                </ul>
+               
+              </div>
+              <div>
+                <a class="text-dark" href="tel:+1-212-456-7890">arq.infinita@gmail.com</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+                
+  <!--  Page Wrapper -->
+  <div class="page-wrapper overflow-hidden">
+
+    <!--  Banner Section -->
+    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
+      style="background-image: url(https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casatinastina1.jpg);">
+      <div class="container">
+        <div class="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
+          <div class="row align-items-center">
+            <div class="col-xl-4">
+              <div class="d-flex align-items-center gap-4" data-aos="fade-up" data-aos-delay="100"
+                data-aos-duration="1000">
+                
+                    </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center  align-items-end gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <h1 class="mb-0 fs-15 text-white lh-1">Blog</h1>
+            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
+              <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
+              </span>
+            </a>
+                    </div>
+                            </div>
+                        </div>
+    </section>
+
+    <!--  Blog Section -->
+    <section class="blog-section py-5 py-lg-11 py-xl-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-7">
+            <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="100"
+              data-aos-duration="1000">
+              <a href="blog-detail.html"
+                class="resources-img resources-img-blog position-relative overflow-hidden d-block">
+                <img src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/Architecture_American_Property_Awards.jpg" alt="resources" class="img-fluid">
+              </a>
+              <div class="resources-details">
+                <p class="mb-0">Dec 24, 2025</p>
+                <h4 class="mb-0">Premio International Property Awards 2024-2025</h4>
+                            </div>
+                        </div>
+          </div>
+          <div class="col-lg-6 mb-7">
+            <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="200"
+              data-aos-duration="1000">
+              <a href="https://caras.perfil.com/noticias/caras-deco/infinita-arquitectura.phtml"target="_blank" class="resources-img resources-img-blog position-relative overflow-hidden d-block">
+                <img src="../assets/images/blog_portadas/2.png" alt="resources" class="img-fluid">
+              </a>
+              <div class="resources-details">
+                <p class="mb-0">Dec 24, 2025</p>
+                <h4 class="mb-0">Nota Revista Caras</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                        </div>
+            </div>
+        </section>
+
+  </div>
+
+  <footer class="footer bg-dark py-5 py-lg-8">
+    <div class="container">
+      <!-- Fila principal del footer -->
+      <div class="row g-5 pb-5 border-bottom border-secondary border-opacity-25 w-100">
+        <!-- Columna de contacto -->
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <img src="../assets/images/logos/logo_footer.svg" alt="Infinita Arquitectura" class="img-fluid mb-4" style="max-width: 250px;">
+          <div class="d-flex flex-column gap-3">
+            <a href="mailto:arq.infinita@gmail.com" class="link-hover d-flex align-items-center gap-2 text-white text-decoration-none">
+              <iconify-icon icon="lucide:mail" class="fs-5 text-primary"></iconify-icon>
+              <span class="fs-5">arq.infinita@gmail.com</span>
+            </a>
+            <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank" class="link-hover d-flex align-items-center gap-2 text-white text-decoration-none">
+              <iconify-icon icon="lucide:map-pin" class="fs-5 text-primary"></iconify-icon>
+              <span class="fs-5">Canning, Buenos Aires, Argentina</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Columna de navegación -->
+        <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+          <h5 class="mb-4 text-white fw-semibold">Navegación</h5>
+          <ul class="list-unstyled d-flex flex-column gap-3">
+            <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="../index.html">Home</a></li>
+            <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="projects.html">Proyectos</a></li>
+            <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna de redes sociales -->
+        <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+          <h5 class="mb-4 text-white fw-semibold">Síguenos</h5>
+          <ul class="list-unstyled d-flex flex-column gap-3">
+            <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="https://www.instagram.com/infinita.arquitectura/" target="_blank">Instagram</a></li>
+            <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="https://api.whatsapp.com/send/?phone=%2B5491141969245&text=Hola%2C+quiero+obtener+informaci%C3%B3n+sobre+un+proyecto&type=phone_number&app_absent=0">Whatsapp</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna de CTA -->
+        <div class="col-lg-4 col-md-4">
+          <h4 class="mb-4 text-white fw-bold">¿Listo para tu proyecto?</h4>
+          <p class="text-white text-opacity-70 mb-4 fs-5">Transformamos ideas en espacios únicos.</p>
+          <a href="mailto:arq.infinita@gmail.com" class="btn btn-primary px-4 py-2 rounded-pill">
+            Contáctanos
+            <iconify-icon icon="lucide:arrow-right" class="ms-2"></iconify-icon>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Fila del copyright -->
+      <div class="row pt-4">
+        <div class="col-12 text-center">
+          <p class="mb-0 text-white text-opacity-50" style="font-size: 0.75rem;">© 2025 Infinita Arquitectura. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="get-template hstack gap-2">
+    
+    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
+      id="scrollToTopBtn">
+      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+    </button>
+  </div>
+
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <!-- solar icons -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

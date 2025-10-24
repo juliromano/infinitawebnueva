@@ -1,0 +1,1115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infinita Arquitectura</title>
+<!-- Favicon -->
+<link href="../assets/images/logos/logo_infinita_1.svg" rel="shortcut icon" type="image/jpeg">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body style="background-color: #353435;">
+    <style>
+        body {
+    background-color: #353435;
+}
+
+.container {
+    width: 100%;
+    max-width: 120rem;
+    /* margin: auto; */
+    padding: 0rem 1.5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-flow: dense;
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+.gallery img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.gallery-item:first-child {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(2) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(12) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(4) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(5) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(14) {
+    grid-column-start: span 4;
+}
+
+.gallery-item:nth-child(16) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(17) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(18) {
+    grid-column-start: span 1;
+}
+
+.gallery-item:nth-child(19) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(20) {
+    grid-column-start: span 1;
+}
+
+/* Clases para tamaños especiales */
+.gallery-item.tall {
+    grid-row-start: span 2;
+}
+
+.gallery-item.wide {
+    grid-column-start: span 2;
+}
+
+.gallery-item.tall.wide {
+    grid-column-start: span 2;
+    grid-row-start: span 2;
+}
+
+/* Forzar proporciones normales para La Querencia */
+.gallery-item.normal-size {
+    grid-column-start: span 1 !important;
+    grid-row-start: span 1 !important;
+}
+
+.gallery-item.normal-size img {
+    object-fit: cover !important;
+    height: 300px !important;
+    width: 100% !important;
+}
+
+/* Últimos 3 items con la misma altura */
+.gallery-item.same-size {
+    grid-column-start: span 1 !important;
+    grid-row-start: span 1 !important;
+}
+
+.gallery-item.same-size img {
+    object-fit: cover !important;
+    height: 300px !important;
+    width: 100% !important;
+}
+
+/* Item del medio con wide pero misma altura */
+.gallery-item.same-size.wide {
+    grid-column-start: span 2 !important;
+    grid-row-start: span 1 !important;
+}
+
+.gallery-item.same-size.wide img {
+    object-fit: cover !important;
+    height: 300px !important;
+    width: 100% !important;
+}
+
+
+
+/* ===========================================
+   SOMBRA DE DIFUMINACIÓN INFERIOR
+   =========================================== */
+.bottom-shadow {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+    z-index: 999;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.bottom-shadow.hidden {
+    opacity: 0;
+}
+
+/* ===========================================
+   FILTER BUTTONS - FLOATING BOTTOM
+   =========================================== */
+.projects-filter {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 15px 25px;
+    border-radius: 50px;
+    margin-bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.projects-filter.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filter-btn {
+    background: #f8f9fa;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 5px;
+}
+
+.filter-btn:hover {
+    background: #dcff81;
+    color: #222;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #dcff81;
+    color: #222;
+}
+
+/* ===========================================
+   PROJECT OVERLAY (HOVER EFFECTS EXACTOS DE PROJECTS-GRID)
+   =========================================== */
+.img {
+    position: relative;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .project-overlay {
+    opacity: 1;
+}
+
+/* ===========================================
+   PROJECT INFO (Título, Ubicación, Área)
+   =========================================== */
+.project-info {
+    color: white;
+}
+
+.project-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.project-location {
+    font-size: 16px;
+    color: #dcff81;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+}
+
+.project-area {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+}
+
+/* ===========================================
+   PROJECT ARROW (Flecha de navegación)
+   =========================================== */
+.project-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #dcff81;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    transition: all 0.3s ease;
+}
+
+.project-arrow iconify-icon {
+    font-size: 28px;
+}
+
+/* Link simple sin efectos pesados */
+.img a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+}
+
+/* ===========================================
+   FILTER ANIMATIONS
+   =========================================== */
+.img.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.img.visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - MOBILE
+   =========================================== */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
+    }
+    
+    /* Forzar todas las imágenes a una columna en móviles */
+    .gallery-item,
+    .gallery-item:first-child,
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5),
+    .gallery-item:nth-child(12),
+    .gallery-item:nth-child(14),
+    .gallery-item:nth-child(16),
+    .gallery-item:nth-child(17),
+    .gallery-item:nth-child(18),
+    .gallery-item:nth-child(19),
+    .gallery-item:nth-child(20),
+    .gallery-item.wide,
+    .gallery-item.tall,
+    .gallery-item.tall.wide,
+    .gallery-item.normal-size,
+    .gallery-item.same-size,
+    .gallery-item.same-size.wide {
+        grid-column-start: span 1 !important;
+        grid-row-start: span 1 !important;
+    }
+    
+    /* Altura fija para todas las imágenes en móviles */
+    .gallery-item img {
+        height: 250px !important;
+        object-fit: cover !important;
+    }
+    
+    /* Eliminar hover effect en móviles y mostrar siempre la información */
+    .gallery-item:hover .project-overlay {
+        opacity: 1 !important;
+    }
+    
+    .project-overlay {
+        opacity: 1 !important;
+        background: rgba(0, 0, 0, 0.6) !important;
+        padding: 20px !important;
+    }
+    
+    /* Ajustar tamaño de texto para móviles */
+    .project-title {
+        font-size: 20px !important;
+    }
+    
+    .project-location {
+        font-size: 14px !important;
+    }
+    
+    .project-area {
+        font-size: 12px !important;
+    }
+    
+    /* Ocultar flecha en móviles */
+    .project-arrow {
+        display: none !important;
+    }
+    
+    /* Ajustar filtros para móviles */
+    .projects-filter {
+        padding: 10px 15px !important;
+        bottom: 10px !important;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px !important;
+        font-size: 10px !important;
+        margin: 0 3px !important;
+    }
+    
+    /* Ajustar sombra inferior para móviles */
+    .bottom-shadow {
+        height: 100px !important;
+    }
+}
+
+    </style>
+
+<!-- Header -->
+<header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+  <div class="container">
+    <div class="header-wrapper d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <a href="../index.html" class="logo-white">
+          <img src="../assets/images/logos/logo_footer.svg" alt="logo" class="img-fluid">
+        </a>
+        <a href="../index.html" class="logo-dark">
+          <img src="../assets/images/logos/logo_infinita.svg" alt="logo" class="img-fluid">
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+
+        <div class="btn-group">
+          <button
+            class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+            type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end p-4">
+            <div class="d-flex flex-column gap-6">
+              <div class="hstack justify-content-between border-bottom pb-6">
+                <p class="mb-0 fs-5 text-dark">Menu</p>
+                <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+              </div>
+              <div class="d-flex flex-column gap-3">
+                <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                  <li class="header-item">
+                    <a href="../index.html" aria-current="true"
+                      class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
+                        src="../assets/images/logos/logo_infinita_3.svg" alt="" width="20" height="20"
+                        class="img-fluid animate-spin">Home</a>
+                  </li>
+
+                  <li class="header-item">
+                    <a href="projects.html" class="header-link active hstack gap-2 fs-7 fw-bold text-dark"><img
+                        src="../assets/images/logos/logo_infinita_2.svg" alt="" width="20" height="20"
+                        class="img-fluid">Proyectos</a>
+                  </li>
+                  <li class="header-item">
+                    <a href="blog.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
+                        src="../assets/images/logos/logo_infinita_3.svg" alt="" width="20" height="20"
+                        class="img-fluid animate-spin">Blog</a>
+                  </li>
+                </ul>
+               
+              </div>
+              <div>
+                <a class="text-dark" href="tel:+1-212-456-7890">arq.infinita@gmail.com</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!--  Page Wrapper -->
+  <div class="page-wrapper overflow-hidden" style="background-color: #0e0e0e;">
+
+<!-- Sombra de difuminación inferior -->
+<div class="bottom-shadow"></div>
+
+<div style="padding-top: 120px;"></div>
+
+<!-- Banner Section 
+    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
+  style="background-image: url(https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/fondo1.jpg);">
+      <div class="container">
+        <div class="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
+          <div class="row align-items-center">
+            <div class="col-xl-4">
+              <div class="d-flex align-items-center gap-4" data-aos="fade-up" data-aos-delay="100"
+                data-aos-duration="1000">
+           
+              </div>
+            </div>
+          </div>
+      <div class="d-flex align-items-end gap-3" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000">
+        <h1 class="mb-0 fs-16 text-white lh-1">Proyectos</h1>
+            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
+              <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+</section>-->
+
+<!-- Filter Buttons -->
+<div class="projects-filter mb-5">
+  <div class="d-flex justify-content-center gap-3">
+    <button class="filter-btn active" data-filter="all">ARQUITECTURA</button>
+    <button class="filter-btn" data-filter="urban">URBAN</button>
+    <button class="filter-btn" data-filter="interior">DISEÑO INTERIOR</button>
+              </div>
+              </div>
+
+<div class="gallery" id="gallery">
+    <!-- Proyecto 1 - Ancho doble -->
+    <div class="gallery-item wide architecture" data-category="architecture interior" data-aos="fade-up" data-aos-delay="0">
+      <a href="casaonkel.html">
+        <img src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casaonkelpremio3.png" alt="Casa Onkel">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Onkel</h3>
+            <p class="project-location">Quincho y Anexos</p>
+            <p class="project-area">950 m²</p>
+              </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+            </div>
+          </div>
+      </a>
+            </div>
+    <!-- Proyecto 2 - Normal -->
+    <div class="gallery-item urban" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casabike.html">
+        <img src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casabike9.jpg" alt="Casa Bike">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Bike</h3>
+            <p class="project-location">Barrio La Providencia Resort & Country Club</p>
+            <p class="project-area">390 m²</p>
+            </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+            </div>
+            </div>
+      </a>
+            </div>
+
+    <!-- Proyecto 3 - Normal -->
+    <div class="gallery-item interior" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="altamira.html">
+        <img src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/altamira/altamira-10-min.jpg" alt="Altamira">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Altamira</h3>
+            <p class="project-location">Quincho</p>
+            <p class="project-area">150 m²</p>
+            </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+            </div>
+            </div>
+      </a>  
+            </div>
+
+    <!-- Proyecto 4 - Normal -->
+    <div class="gallery-item architecture" data-category="architecture urban" data-aos="fade-up" data-aos-delay="50">
+      <a href="tenis-providencia.html">
+        <img src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/providencia1.jpg" alt="Tenis">
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Tenis</h3>
+            <p class="project-location">Barrio La Providencia Resort & Country Club</p>
+        </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+      </div>
+                      </div>
+        </a>
+              </div>
+              
+    <div class="gallery-item" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casatokyo.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casatokio1.jpg"
+          width="2048"
+          height="1536"
+          alt="Fachadas coloridas en Nyhavn, Copenhague"
+          class="item item5"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Tokyo</h3>
+            <p class="project-location">Buenos Aires</p>
+            <p class="project-area">425,6 m²</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+        </a>
+                  </div>
+                  
+    <div class="gallery-item" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casanani.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/nani16.jpg"
+          width="1536"
+          height="2048"
+          alt="Morfología paramétrica en el Acuario de Dinamarca"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Nani</h3>
+            <p class="project-location">Buenos Aires</p>
+            <p class="project-area">332 m²</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+      </a>  
+                  </div>
+                  
+    <div class="gallery-item wide" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casatinastina.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casatinastina1.jpg"
+          width="2048"
+          height="2048"
+          alt="Frente de la Ópera de Copenhague"
+          class="item item7"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Tinastina</h3>
+            <p class="project-location">Buenos Aires</p>
+            <p class="project-area">460,65 m²</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+        </a>
+                  </div>
+                  
+    <div class="gallery-item" data-category="architecture urban" data-aos="fade-up" data-aos-delay="50">
+      <a href="areapolo.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/areapolo8.jpg"
+          width="1536"
+          height="2048"
+          alt="Bradbury Builnding Ojo de Pez"
+          class="item item8"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Area de Polo</h3>
+            <p class="project-location">Caning, Buenos Aires</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+        </a>
+                  </div>
+                  
+    <div class="gallery-item wide" data-category="architecture urban" data-aos="fade-up" data-aos-delay="50">
+      <a href="caballerizas.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/caballerizas1.jpg"
+          width="1536"
+          height="2048"
+          alt="Street Art en las calles de Copenhague"
+          class="item item9"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Caballerizas</h3>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+        </a>
+                  </div>
+                  
+    <div class="gallery-item wide" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casaelim.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casaelim1.jpg"
+          width="2048"
+          height="2048"
+          alt="8 House - Conjunto de viviendas del estudio BIG en Copenhague"
+          class="item item10"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Elim</h3>
+            <p class="project-location">Canning, Buenos Aires</p>
+            <p class="project-area">341 m²</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+        </a>
+                  </div>
+                  
+    <div class="gallery-item tall" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casaserena.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casaserena1.jpg"
+          width="1536"
+          height="2048"
+          alt="Paseo público en Copenhague"
+          class="item item11"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Serena</h3>
+            <p class="project-location">Buenos Aires</p>
+            <p class="project-area">320,50 m²</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                                  </div>
+        </a>
+                                  </div>
+                                  
+    <div class="gallery-item" data-category="architecture urban" data-aos="fade-up" data-aos-delay="50">
+      <a href="polideportivo.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/polideportivo4.jpg"
+          width="2048"
+          height="1535"
+          alt="Tranvía en las calles de Helsinski"
+          class="item item12"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Polideportivo</h3>
+            <p class="project-location">Canning, Buenos Aires</p>
+            <p class="project-area">4498 m²</p>
+                                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                                  </div>
+                </div>
+        </a>
+                </div>
+    <div class="gallery-item" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casaambay.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/tostado-ambay2.jpg"
+          width="1536"
+          height="2048"
+          alt="Oslo Palace"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Ambay</h3>
+            <p class="project-location">Tostado, Santa Fe</p>
+            <p class="project-area">336 m²</p>
+                </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                </div>
+              </div>
+        </a>
+                  </div>
+    <div class="gallery-item wide" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="laquerencia.html">
+      <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/tostado-laquerencia1.jpg"
+          width="2048"
+          height="873"
+          alt="09082018-IMG_9919"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">La Querencia</h3>
+            <p class="project-location">Tostado, Santa Fe</p>
+            <p class="project-area">638,48 m²</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+        </a>
+                  </div>
+                  
+    <div class="gallery-item wide" data-category="architecture interior" data-aos="fade-up" data-aos-delay="100">
+      <a href="remodelacion257.html">
+        <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/remodelacion257-2.jpg"
+          width="1536"
+          height="2048"
+          alt="Nuevo Proyecto 1"
+          class="item item13"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Remodelacion 257</h3>
+            <p class="project-location">Buenos Aires</p>
+                  </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+                  </div>
+                  </div>
+      </a>
+                  </div>
+
+    <div class="gallery-item" data-category="architecture interior" data-aos="fade-up" data-aos-delay="0">
+      <a href="remodelacion419.html">
+        <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/remodelacion419-2.jpg"
+          width="2048"
+          height="1536"
+          alt="Nuevo Proyecto 2"
+          class="item item14"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Remodelacion 419</h3>
+            <p class="project-location">Buenos Aires</p>
+              </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+          </div>
+              </div>
+      </a>
+        </div>
+        
+    <div class="gallery-item same-size" data-category="architecture interior" data-aos="fade-up" data-aos-delay="100">
+      <a href="remodelacion370.html">
+        <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/remodelacion370-6.jpg"
+          width="1536"
+          height="2048"
+          alt="Nuevo Proyecto 3"
+          class="item item15"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Remodelacion 370</h3>
+            <p class="project-location">Buenos Aires</p>
+      </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+    </div>
+  </div>
+      </a>
+              </div>
+              
+    <div class="gallery-item same-size wide" data-category="architecture interior" data-aos="fade-up" data-aos-delay="150">
+      <a href="remodelacion499.html">
+        <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/remodelacion499-7.jpg"
+          width="2048"
+          height="873"
+          alt="Nuevo Proyecto 4"
+          class="item item16"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Remodelacion 499</h3>
+            <p class="project-location">Canning, Ezeiza</p>
+              </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+              </div>
+            </div>
+      </a>
+          </div>
+
+    <div class="gallery-item same-size" data-category="architecture interior" data-aos="fade-up" data-aos-delay="50">
+      <a href="casanina.html">
+        <img
+          src="https://cdn.jsdelivr.net/gh/juliromano/infinita-arquitectura/casanina-7.jpg"
+          width="1536"
+          height="2048"
+          alt="Nuevo Proyecto 5"
+          class="item item17"
+        />
+        <div class="project-overlay">
+          <div class="project-info">
+            <h3 class="project-title">Casa Nina</h3>
+            <p class="project-location">Canning, Buenos Aires</p>
+            <p class="project-area">386 m²</p>
+      </div>
+          <div class="project-arrow">
+            <iconify-icon icon="lucide:arrow-up-right" class="fs-8"></iconify-icon>
+    </div>
+  </div>
+              </a>
+            </div>
+          </div>
+</section>
+
+<div style="padding-bottom: 80px;"></div>
+
+  </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <!-- solar icons -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+<!-- Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const imageGallery = document.querySelector('.gallery');
+    const projectsFilter = document.querySelector('.projects-filter');
+    
+    // Store original images as a backup
+    const originalImages = Array.from(document.querySelectorAll('.gallery-item')).map(item => item.cloneNode(true));
+
+    // Show filter buttons immediately and hide when footer is in viewport
+    projectsFilter.classList.add('visible');
+    
+    window.addEventListener('scroll', function() {
+        const footer = document.querySelector('.footer');
+        const bottomShadow = document.querySelector('.bottom-shadow');
+        const footerTop = footer.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        // Hide buttons and shadow when footer is in viewport
+        if (footerTop <= windowHeight) {
+            projectsFilter.classList.remove('visible');
+            bottomShadow.classList.add('hidden');
+        } else {
+            projectsFilter.classList.add('visible');
+            bottomShadow.classList.remove('hidden');
+        }
+    });
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            // Filter original images based on category
+            const filteredImages = originalImages.filter(item => {
+                const category = item.getAttribute('data-category');
+                if (filterValue === 'all') return true;
+                return category && category.includes(filterValue);
+            });
+
+            // Clear the gallery
+            imageGallery.innerHTML = '';
+
+            // Add filtered images in order
+            filteredImages.forEach((item, index) => {
+                // Reset any grid positioning classes
+                item.className = 'gallery-item';
+                item.classList.add('visible');
+                
+                // Add AOS animation attributes
+                item.setAttribute('data-aos', 'fade-up');
+                item.setAttribute('data-aos-delay', (index * 30).toString());
+                item.setAttribute('data-aos-duration', '500');
+                
+                imageGallery.appendChild(item);
+            });
+            
+            // Refresh AOS after adding new elements
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+
+            // Reapply grid positioning to the filtered images
+            const newImages = imageGallery.querySelectorAll('.gallery-item');
+            
+            // Special layout for urban filter
+            if (filterValue === 'urban') {
+                // Change gallery to 2 columns for urban filter
+                imageGallery.style.gridTemplateColumns = '1fr 1fr';
+                imageGallery.style.gap = '2rem';
+                
+                newImages.forEach((item, index) => {
+                    // Reset all classes
+                    item.className = 'gallery-item';
+                    item.style.gridColumnStart = 'span 1';
+                    item.style.gridRowStart = 'span 1';
+                    
+                    // Make all images large (2x2 grid)
+                    item.classList.add('wide', 'tall');
+                    item.style.gridColumnStart = 'span 1';
+                    item.style.gridRowStart = 'span 1';
+                });
+            } else {
+                // Default layout for other filters
+                imageGallery.style.gridTemplateColumns = 'auto auto auto auto';
+                imageGallery.style.gap = '1rem';
+                
+                newImages.forEach((item, index) => {
+                    // Reset any grid positioning classes
+                    item.className = 'gallery-item';
+                    item.style.gridColumnStart = 'span 1';
+                    item.style.gridRowStart = 'span 1';
+
+                    // Reapply the original grid positioning based on index
+                    if (index === 0) {
+                        item.classList.add('wide');
+                        item.style.gridColumnStart = 'span 2';
+                    } else if (index === 1) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 2) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 3) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 4) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 5) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 6) {
+                        item.classList.add('wide');
+                        item.style.gridColumnStart = 'span 2';
+                    } else if (index === 7) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 8) {
+                        item.classList.add('wide');
+                        item.style.gridColumnStart = 'span 2';
+                    } else if (index === 9) {
+                        item.classList.add('wide');
+                        item.style.gridColumnStart = 'span 2';
+                    } else if (index === 10) {
+                        item.classList.add('tall');
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 11) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 12) {
+                        item.style.gridColumnStart = 'span 1';
+                    } else if (index === 13) {
+                        item.classList.add('wide');
+                        item.style.gridColumnStart = 'span 2';
+                    }
+                });
+            }
+        });
+    });
+    
+    // Initialize AOS for initial page load
+    AOS.init({
+        duration: 400,
+        once: true,
+        offset: 0,
+        easing: 'ease-out',
+        delay: 0,
+        disable: false
+            });
+        });
+</script>
+
+
+<footer class="footer bg-dark py-5 py-lg-8">
+  <div class="container">
+    <!-- Fila principal del footer -->
+    <div class="row g-5 pb-5 border-bottom border-secondary border-opacity-25 w-100">
+      <!-- Columna de contacto -->
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <img src="../assets/images/logos/logo_footer.svg" alt="Infinita Arquitectura" class="img-fluid mb-4" style="max-width: 250px;">
+        <div class="d-flex flex-column gap-3">
+          <a href="mailto:arq.infinita@gmail.com" class="link-hover d-flex align-items-center gap-2 text-white text-decoration-none">
+            <iconify-icon icon="lucide:mail" class="fs-5 text-primary"></iconify-icon>
+            <span class="fs-5">arq.infinita@gmail.com</span>
+          </a>
+          <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank" class="link-hover d-flex align-items-center gap-2 text-white text-decoration-none">
+            <iconify-icon icon="lucide:map-pin" class="fs-5 text-primary"></iconify-icon>
+            <span class="fs-5">Canning, Buenos Aires, Argentina</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Columna de navegación -->
+      <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+        <h5 class="mb-4 text-white fw-semibold">Navegación</h5>
+        <ul class="list-unstyled d-flex flex-column gap-3">
+          <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="../index.html">Home</a></li>
+          <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="projects.html">Proyectos</a></li>
+          <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      
+      <!-- Columna de redes sociales -->
+      <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+        <h5 class="mb-4 text-white fw-semibold">Síguenos</h5>
+        <ul class="list-unstyled d-flex flex-column gap-3">
+          <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="https://www.instagram.com/infinita.arquitectura/" target="_blank">Instagram</a></li>
+          <li><a class="link-hover text-white text-opacity-70 text-decoration-none fs-5" href="https://api.whatsapp.com/send/?phone=%2B5491141969245&text=Hola%2C+quiero+obtener+informaci%C3%B3n+sobre+un+proyecto&type=phone_number&app_absent=0">Whatsapp</a></li>
+        </ul>
+      </div>
+      
+      <!-- Columna de CTA -->
+      <div class="col-lg-4 col-md-4">
+        <h4 class="mb-4 text-white fw-bold">¿Listo para tu proyecto?</h4>
+        <p class="text-white text-opacity-70 mb-4 fs-5">Transformamos ideas en espacios únicos.</p>
+        <a href="mailto:arq.infinita@gmail.com" class="btn btn-primary px-4 py-2 rounded-pill">
+          Contáctanos
+          <iconify-icon icon="lucide:arrow-right" class="ms-2"></iconify-icon>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Fila del copyright -->
+    <div class="row pt-4">
+      <div class="col-12 text-center">
+        <p class="mb-0 text-white text-opacity-50" style="font-size: 0.75rem;">© 2025 Infinita Arquitectura. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
