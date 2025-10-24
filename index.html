@@ -1030,20 +1030,20 @@
               
             </div>
             <div class="col-xl-8 ">
-              <form class="d-flex flex-column gap-7 w-100" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+              <form id="contactForm" class="d-flex flex-column gap-7 w-100" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                 <div>
-                  <input type="text" class="form-control border-bottom border-dark" id="formGroupExampleInput"
-                    placeholder="Nombre">
+                  <input type="text" class="form-control border-bottom border-dark" id="nombre" name="nombre"
+                    placeholder="Nombre" required>
                 </div>
                 <div>
-                  <input type="email" class="form-control border-bottom border-dark" id="exampleInputEmail1"
-                    placeholder="Email" aria-describedby="emailHelp">
+                  <input type="email" class="form-control border-bottom border-dark" id="email" name="email"
+                    placeholder="Email" aria-describedby="emailHelp" required>
                 </div>
                 <div>
-                  <textarea class="form-control border-bottom border-dark" id="exampleFormControlTextarea1"
-                    placeholder="Mensaje" rows="3"></textarea>
+                  <textarea class="form-control border-bottom border-dark" id="mensaje" name="mensaje"
+                    placeholder="Mensaje" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="btn w-100 justify-content-center">
+                <button type="submit" class="btn w-100 justify-content-center" id="submitBtn">
                   <span class="btn-text">Enviar mensaje</span>
                   <iconify-icon icon="lucide:arrow-up-right"
                     class="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"></iconify-icon>
@@ -1222,6 +1222,61 @@
   <script src="assets/js/custom.js"></script>
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <!-- Script para el formulario de contacto -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar EmailJS (necesitarás crear una cuenta en emailjs.com)
+      emailjs.init("TU_PUBLIC_KEY_AQUI"); // Reemplaza con tu clave pública de EmailJS
+      
+      const contactForm = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Cambiar el texto del botón
+        const originalText = submitBtn.querySelector('.btn-text').textContent;
+        submitBtn.querySelector('.btn-text').textContent = 'Enviando...';
+        submitBtn.disabled = true;
+        
+        // Obtener los datos del formulario
+        const templateParams = {
+          from_name: document.getElementById('nombre').value,
+          from_email: document.getElementById('email').value,
+          message: document.getElementById('mensaje').value,
+          to_email: 'arq.infinita@gmail.com'
+        };
+        
+        // Enviar email usando EmailJS
+        emailjs.send('TU_SERVICE_ID', 'TU_TEMPLATE_ID', templateParams)
+          .then(function(response) {
+            console.log('Email enviado exitosamente!', response.status, response.text);
+            submitBtn.querySelector('.btn-text').textContent = '¡Enviado!';
+            contactForm.reset();
+            
+            // Restaurar el botón después de 3 segundos
+            setTimeout(() => {
+              submitBtn.querySelector('.btn-text').textContent = originalText;
+              submitBtn.disabled = false;
+            }, 3000);
+          })
+          .catch(function(error) {
+            console.error('Error al enviar email:', error);
+            submitBtn.querySelector('.btn-text').textContent = 'Error, intenta de nuevo';
+            
+            // Restaurar el botón después de 3 segundos
+            setTimeout(() => {
+              submitBtn.querySelector('.btn-text').textContent = originalText;
+              submitBtn.disabled = false;
+            }, 3000);
+          });
+      });
+    });
+  </script>
 
 
 

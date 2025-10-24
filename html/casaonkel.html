@@ -1376,14 +1376,24 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.9);
+        background: transparent;
         border: none;
         width: 60px;
         height: 60px;
         cursor: pointer;
         font-size: 2rem;
-        color: #333;
+        color: white;
         border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100001;
+        transition: all 0.3s ease;
+    }
+    
+    .lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-50%) scale(1.1);
     }
     
     .lightbox-prev {
@@ -1441,17 +1451,24 @@
         }
         
         .lightbox-nav {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            color: white;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            z-index: 100001;
         }
         
         .lightbox-prev {
-            left: 10px;
+            left: 15px;
         }
         
         .lightbox-next {
-            right: 10px;
+            right: 15px;
         }
         
         .lightbox-close {
@@ -1479,7 +1496,24 @@
         }
         
         .lightbox-nav {
-            display: none;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            color: white;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            z-index: 100001;
+        }
+        
+        .lightbox-prev {
+            left: 10px;
+        }
+        
+        .lightbox-next {
+            right: 10px;
         }
         
         .lightbox-close {
@@ -1666,6 +1700,36 @@
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowLeft') showPrev();
                 if (e.key === 'ArrowRight') showNext();
+            }
+        });
+        
+        // Soporte para gestos táctiles (swipe) en mobile
+        let startX = 0;
+        let startY = 0;
+        let endX = 0;
+        let endY = 0;
+        
+        lightbox.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+        
+        lightbox.addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
+            
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Solo procesar swipe horizontal si el movimiento vertical es menor
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // Swipe izquierda - siguiente imagen
+                    showNext();
+                } else {
+                    // Swipe derecha - imagen anterior
+                    showPrev();
+                }
             }
         });
         
